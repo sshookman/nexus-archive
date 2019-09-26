@@ -3,6 +3,7 @@ import threading
 from .client import Client
 
 class Server():
+    """Telnet Server"""
 
     tn_socket = None
     clients = None
