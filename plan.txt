@@ -1,0 +1,151 @@
+> telnet nexus-archive.org
+
+Welcome to the Nexus Archive
+
+  [R]egister
+  [L]ogin
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[NA] >> R
+
+Enter an Account Username >> sshookman
+Enter an Account Password >> **********
+Verify the Account Password >> **********
+
+Adventurer Record Established.
+Good luck.
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[sshookman] >> G
+
++----------+---------------------------+-------------------------------------------+
+| GATE ID  |           NAME            |                DESCRIPTION                |
++----------+---------------------------+-------------------------------------------+
+| TBA-1127 | The Dragonfly Experiments | Solve the Riddle, Survive the Experiment! |
+| TBA-7777 | The Name is Simply TOO... | My bad!                                   |
++----------+---------------------------+-------------------------------------------+
+
+  [E]nter <GATE ID>
+
+[sshookman] >> Enter
+
+Please Provide a Gate ID
+
+[sshookman] >> enter TBA-7777
+
+Welcome to the game with the name that is simply too lo...
+What is your name? Is it simply too long?
+
+[sshookman] >> Harkken
+
+Welcome you short-named creature.
+You're new!
+
+The game is ready and waiting for you!
+
+>>PRESS ENTER TO CONTINUE<<
+
+It's a cold, dark, rainy, smelly, muggy, humid, boring, night.
+Or is it day time and you just have the blinds drawn?
+
+[sshookman] Harkken >> save
+
+Game Saved!
+Huzzah!
+
+[sshookman] Harkken >> quit
+
+Farewell, good sir.
+
+-----------
+
+Welcome to the Nexus Archive
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[sshookman] >> logout
+
+Welcome to the Nexus Archive
+
+  [R]egister
+  [L]ogin
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[NA] >> login
+
+Enter your Account Username >> sshookman
+Enter your Account Password >> **********
+
+Welcome Back!
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[sshookman] >> about
+
+Blind connections made by a rouge AI stumbled upon a lost and long-forgotten server. A server that
+had somehow become connected to the very nexus of the multiverse itself. A place where all of the
+universes meet. It is from here that we were able to establish a link.
+
+Using the revolutionary technology of telnet connections, we created a link between all the realms
+of the multiverse and this archive. From here you can access them all. One by one new connections
+to new universes are being made. And from this archive, you can explore them all to your heart's
+content.
+
+Beware, intrepid adventurer. There are surely perils in these universes. We aresailing uncharted
+seas, and none can truly say what you may find out there.
+
+...
+
+[sshookman] >> help
+
+Help Information Topics
+
+  [C]ommands
+  [G]ates
+  [B]ack
+
+[sshookman] >> BACK
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [Q]uit
+
+[sshookman] >> Gates
+
++----------+---------------------------+-------------------------------------------+
+| GATE ID  |           NAME            |                DESCRIPTION                |
++----------+---------------------------+-------------------------------------------+
+| TBA-1127 | The Dragonfly Experiments | Solve the Riddle, Survive the Experiment! |
+| TBA-7777 | The Name is Simply TOO... | My bad!                                   |
++----------+---------------------------+-------------------------------------------+
+
+[sshookman] >> Enter TBA-1127
+
+##########-TODO-##########
+
+-------
+
+[sshookman] >> quit
+
+Now Leaving the Nexus Archives...
+
+>

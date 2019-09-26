@@ -1,0 +1,17 @@
+name: nexus-archive
+description: A Telnet-Based Archive of Gates to the Multiverse
+language: Python
+maintainer: Sean Shookman
+contact: sms112788@gmail.com
+ephemeral: false
+ignores:
+- build/
+- dist/
+- nexus.egg-info/
+ports:
+- 1127:1127
+jobs:
+- name: start
+  source: jobs/start.sh
+  help: Start the Nexus Archive Server
+  mode: d
