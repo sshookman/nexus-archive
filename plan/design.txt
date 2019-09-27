@@ -14,8 +14,8 @@ Enter an Account Username >> sshookman
 Enter an Account Password >> **********
 Verify the Account Password >> **********
 
-Adventurer Record Established.
-Good luck.
+A New Adventurer has been Logged
+Good luck out there, sshookman
 
   [G]ates
   [L]ogout
@@ -58,11 +58,12 @@ Or is it day time and you just have the blinds drawn?
 [sshookman] Harkken >> save
 
 Game Saved!
-Huzzah!
+The Game is Always Saved Automatically, but Yay Anway!
 
 [sshookman] Harkken >> quit
 
 Farewell, good sir.
+You will not be forgo-what was your name again?
 
 -----------
 
@@ -75,6 +76,8 @@ Welcome to the Nexus Archive
   [Q]uit
 
 [sshookman] >> logout
+
+Adventurer Disconnected
 
 Welcome to the Nexus Archive
 
@@ -89,7 +92,7 @@ Welcome to the Nexus Archive
 Enter your Account Username >> sshookman
 Enter your Account Password >> **********
 
-Welcome Back!
+Welcome Back, sshookman!
 
   [G]ates
   [L]ogout
@@ -104,22 +107,33 @@ had somehow become connected to the very nexus of the multiverse itself. A place
 universes meet. It is from here that we were able to establish a link.
 
 Using the revolutionary technology of telnet connections, we created a link between all the realms
-of the multiverse and this archive. From here you can access them all. One by one new connections
-to new universes are being made. And from this archive, you can explore them all to your heart's
-content.
+of the multiverse and this archive. From this archive you can find them all. From this archive you
+access them all. From this archive you explore them all to your heart's content.
 
-Beware, intrepid adventurer. There are surely perils in these universes. We aresailing uncharted
-seas, and none can truly say what you may find out there.
+But, beware, intrepid adventurer. There are surely perils in these universes. We are sailing
+uncharted seas, and none can truly say what you may find out there. Above all things to take with
+you on your journeys, take caution.
 
-...
+Good Luck!
+
+>>PRESS ENTER TO CONTINUE<<
+
+The Nexus Achives #TODO: Replace Title with Ascii Text
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [Q]uit
 
 [sshookman] >> help
 
-Help Information Topics
+Help Topics
 
   [C]ommands
   [G]ates
-  [B]ack
+
+<<[B]ack
 
 [sshookman] >> BACK
 
@@ -139,6 +153,46 @@ Help Information Topics
 +----------+---------------------------+-------------------------------------------+
 
 [sshookman] >> Enter TBA-1127
+
+>>_______Establishing Connection to Universe TBA-1127________<<
+>>_Preparing Data-Packets for Multi-Dimensional Transmission_<<
+>>_____________Transmitting Hyperspace Data Feed_____________<<
+>>______________Tether Established Successfully______________<<
+>>_____________________Entering TBA-1127_____________________<<
+
+Do you wish to proceed?  (Y)es/(N)o
+
+[sshookman] >> Yes
+
+The Dragonf|y Experiments
+           |
+        \\ |
+         \\| [N]ew Game
+          || [C]ontinue
+         //| [E]xit
+        // |
+       //  |
+
+[sshookman] >> continue
+
+Please Se|ect a Player
+         |
+     [1] | Harkken
+     [2] | Julia
+     [3] | Finn
+         |
+
+<<[B]ack
+
+[sshookman] >> Harkken
+
+You stand alone in a dark room...
+...there is a red door...
+
+[Harkken] >> enter red door
+
+You go through the red door into hallway lit by dozens of small tea candles lining a narrow shelf
+on the east wall...
 
 ##########-TODO-##########
 

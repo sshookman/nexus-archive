@@ -1,0 +1,28 @@
+/nexus-archive/
++-- users/
+    +-- sshookman/
+        +-- gates/
+            +-- TBA-1127/
+                +-- Harkken.sqlite
+                +-- Julia.sqlite
+                +-- Finn.sqlite
+    +-- sgaskins/
+        +-- gates/
+            +-- TBA-1028/
+                +-- Turtler.sqlite
+            +-- TBA-1127/
+                +-- Sarah.sqlite
+                +-- Lincoln.sqlite
++-- gates/
+    +-- TBA-1028/
+        +-- gate.sqlite
+        +-- universe.sqlite
+    +-- TBA-1127/
+        +-- gate.sqlite
+        +-- universe.sqlite
+
+------------
+
+There are Users and there are Gates. Gates are the games, which are broken up between the "gate.sqlite"
+which acts as the menu screen for character selection, help info, and any other junk the creater
+may want to include.
