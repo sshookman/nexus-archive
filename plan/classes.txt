@@ -1,0 +1,48 @@
+Server | Singleton
+    - port
+    - clients[]
+
+    + __init__(port) # Starts server on port, accepts connections
+
+Client(Thread)
+    - cli
+    - nexusManager
+
+    + __init__(socket, address) # Inits thread with scoket and address
+    + run() # Main execution loop for client thread
+        # LOGIN
+        username = cli.prompt("Username")
+        if accountService.find(username):
+            pswd = cli.password("Password")
+            accountService.auth(username, pswd) # Exit on Failure
+            cli.print("Welcome Back, {}".format(username))
+        else:
+            pswd = cli.password("New Password")
+            while (pswd != cli.password("Retype Password")):
+                pswd = cli.password("New Password")
+
+            cli.print("Welcome, {}".format(username))
+
+        # MAIN LOOP
+        cmd = None
+        while (cmd is not "exit"):
+            page = nexusManager.getPage(cmd)
+            cli.print(page)
+            cmd = cli.prompt()
+
+        # EXIT
+        cli.print("Thanks for Playing!")
+
+
+
+NexusManager
+
+
+Page
+    - display
+
+    + __init__(display)
+
+Reader
+
+Writer

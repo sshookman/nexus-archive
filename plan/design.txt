@@ -2,26 +2,22 @@
 
 Welcome to the Nexus Archive
 
-  [R]egister
-  [L]ogin
-  [A]bout
-  [H]elp
-  [Q]uit
+Enter Account Username >> sshookman
 
-[NA] >> R
+This appears to be a new Username, would you like to create an Account? [Y/N] >> Y
 
-Enter an Account Username >> sshookman
 Enter an Account Password >> **********
 Verify the Account Password >> **********
 
 A New Adventurer has been Logged
 Good luck out there, sshookman
 
+Welcome to the Nexus Archive
+
   [G]ates
-  [L]ogout
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [sshookman] >> G
 
@@ -70,10 +66,9 @@ You will not be forgo-what was your name again?
 Welcome to the Nexus Archive
 
   [G]ates
-  [L]ogout
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [sshookman] >> logout
 
@@ -82,10 +77,9 @@ Adventurer Disconnected
 Welcome to the Nexus Archive
 
   [R]egister
-  [L]ogin
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [NA] >> login
 
@@ -95,10 +89,9 @@ Enter your Account Password >> **********
 Welcome Back, sshookman!
 
   [G]ates
-  [L]ogout
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [sshookman] >> about
 
@@ -121,10 +114,9 @@ Good Luck!
 The Nexus Achives #TODO: Replace Title with Ascii Text
 
   [G]ates
-  [L]ogout
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [sshookman] >> help
 
@@ -141,7 +133,7 @@ Help Topics
   [L]ogout
   [A]bout
   [H]elp
-  [Q]uit
+  [E]xit
 
 [sshookman] >> Gates
 
