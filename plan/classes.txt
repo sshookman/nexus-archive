@@ -1,10 +1,10 @@
-Server | Singleton
+Server:
     - port
     - clients[]
 
     + __init__(port) # Starts server on port, accepts connections
 
-Client(Thread)
+Client(Thread):
     - cli
     - nexusManager
 
@@ -33,16 +33,29 @@ Client(Thread)
         # EXIT
         cli.print("Thanks for Playing!")
 
+NexusManager:
+    - pages
+    - page
+    
+    + __init__() # Setup list of all nexus pages and default page to None
+    + getPage(cmd=None)
+        if (cmd is None):
+            self.page = welcome_page
+        else:
+            page_name = self.page.findRoute(cmd)
+            self.page = self.pages[page_name]
 
-
-NexusManager
-
+        return self.page
 
 Page
     - display
+    - routes
 
-    + __init__(display)
+    + __init__(display, routes) # Initializes a page with display text and routes dict
+    + findRoute(cmd):
+        page = None
+        for pattern, page_name in self.routes.items():
+            if pattern.matches(cmd):
+                page = page_name
 
-Reader
-
-Writer
+        return page
