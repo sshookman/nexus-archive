@@ -1,0 +1,197 @@
+> telnet nexus-archive.org
+
+Welcome to the Nexus Archive
+
+Enter Account Username >> sshookman
+
+This appears to be a new Username, would you like to create an Account? [Y/N] >> Y
+
+Enter an Account Password >> **********
+Verify the Account Password >> **********
+
+A New Adventurer has been Logged
+Good luck out there, sshookman
+
+Welcome to the Nexus Archive
+
+  [G]ates
+  [A]bout
+  [H]elp
+  [E]xit
+
+[sshookman] >> G
+
++----------+---------------------------+-------------------------------------------+
+| GATE ID  |           NAME            |                DESCRIPTION                |
++----------+---------------------------+-------------------------------------------+
+| TBA-1127 | The Dragonfly Experiments | Solve the Riddle, Survive the Experiment! |
+| TBA-7777 | The Name is Simply TOO... | My bad!                                   |
++----------+---------------------------+-------------------------------------------+
+
+  [E]nter <GATE ID>
+
+[sshookman] >> Enter
+
+Please Provide a Gate ID
+
+[sshookman] >> enter TBA-7777
+
+Welcome to the game with the name that is simply too lo...
+What is your name? Is it simply too long?
+
+[sshookman] >> Harkken
+
+Welcome you short-named creature.
+You're new!
+
+The game is ready and waiting for you!
+
+>>PRESS ENTER TO CONTINUE<<
+
+It's a cold, dark, rainy, smelly, muggy, humid, boring, night.
+Or is it day time and you just have the blinds drawn?
+
+[sshookman] Harkken >> save
+
+Game Saved!
+The Game is Always Saved Automatically, but Yay Anway!
+
+[sshookman] Harkken >> quit
+
+Farewell, good sir.
+You will not be forgo-what was your name again?
+
+-----------
+
+Welcome to the Nexus Archive
+
+  [G]ates
+  [A]bout
+  [H]elp
+  [E]xit
+
+[sshookman] >> logout
+
+Adventurer Disconnected
+
+Welcome to the Nexus Archive
+
+  [R]egister
+  [A]bout
+  [H]elp
+  [E]xit
+
+[NA] >> login
+
+Enter your Account Username >> sshookman
+Enter your Account Password >> **********
+
+Welcome Back, sshookman!
+
+  [G]ates
+  [A]bout
+  [H]elp
+  [E]xit
+
+[sshookman] >> about
+
+Blind connections made by a rouge AI stumbled upon a lost and long-forgotten server. A server that
+had somehow become connected to the very nexus of the multiverse itself. A place where all of the
+universes meet. It is from here that we were able to establish a link.
+
+Using the revolutionary technology of telnet connections, we created a link between all the realms
+of the multiverse and this archive. From this archive you can find them all. From this archive you
+access them all. From this archive you explore them all to your heart's content.
+
+But, beware, intrepid adventurer. There are surely perils in these universes. We are sailing
+uncharted seas, and none can truly say what you may find out there. Above all things to take with
+you on your journeys, take caution.
+
+Good Luck!
+
+>>PRESS ENTER TO CONTINUE<<
+
+The Nexus Achives #TODO: Replace Title with Ascii Text
+
+  [G]ates
+  [A]bout
+  [H]elp
+  [E]xit
+
+[sshookman] >> help
+
+Help Topics
+
+  [C]ommands
+  [G]ates
+
+<<[B]ack
+
+[sshookman] >> BACK
+
+  [G]ates
+  [L]ogout
+  [A]bout
+  [H]elp
+  [E]xit
+
+[sshookman] >> Gates
+
++----------+---------------------------+-------------------------------------------+
+| GATE ID  |           NAME            |                DESCRIPTION                |
++----------+---------------------------+-------------------------------------------+
+| TBA-1127 | The Dragonfly Experiments | Solve the Riddle, Survive the Experiment! |
+| TBA-7777 | The Name is Simply TOO... | My bad!                                   |
++----------+---------------------------+-------------------------------------------+
+
+[sshookman] >> Enter TBA-1127
+
+>>_______Establishing Connection to Universe TBA-1127________<<
+>>_Preparing Data-Packets for Multi-Dimensional Transmission_<<
+>>_____________Transmitting Hyperspace Data Feed_____________<<
+>>______________Tether Established Successfully______________<<
+>>_____________________Entering TBA-1127_____________________<<
+
+Do you wish to proceed?  (Y)es/(N)o
+
+[sshookman] >> Yes
+
+The Dragonf|y Experiments
+           |
+        \\ |
+         \\| [N]ew Game
+          || [C]ontinue
+         //| [E]xit
+        // |
+       //  |
+
+[sshookman] >> continue
+
+Please Se|ect a Player
+         |
+     [1] | Harkken
+     [2] | Julia
+     [3] | Finn
+         |
+
+<<[B]ack
+
+[sshookman] >> Harkken
+
+You stand alone in a dark room...
+...there is a red door...
+
+[Harkken] >> enter red door
+
+You go through the red door into hallway lit by dozens of small tea candles lining a narrow shelf
+on the east wall...
+
+##########-TODO-##########
+
+-------
+
+[sshookman] >> quit
+
+Now Leaving the Nexus Archives...
+
+>
