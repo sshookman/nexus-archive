@@ -5,4 +5,5 @@
 FROM skelebot/python-base
 MAINTAINER Sean Shookman <sms112788@gmail.com>
 WORKDIR /app
+RUN ["pip", "install", "setuptools"]
 COPY . /app

@@ -1,15 +1,21 @@
 name: nexus-archive
 description: A Telnet-Based Archive of Gates to the Multiverse
-language: Python
 maintainer: Sean Shookman
 contact: sms112788@gmail.com
 ephemeral: false
+
+dependencies:
+- setuptools
+
 ignores:
 - build/
 - dist/
 - nexus.egg-info/
+
 ports:
 - 1127:1127
+
+language: Python
 jobs:
 - name: install
   source: python3 setup.py clean --all install
@@ -19,7 +25,7 @@ jobs:
   source: telnet localhost 1127
   help: connect to the Nexus Archive (use --native)
 - name: start
-  source: python setup.py clean --all install && nexus
+  source: python3 setup.py clean --all install && nexus
   help: Start the Nexus Archive Server
   mode: d
 - name: stop
