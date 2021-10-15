@@ -47,15 +47,17 @@ NexusManager:
 
         return self.page
 
-Page
+Entity
+    - id
+
+Location
+    - entity_id
     - display
-    - routes
+    - paths #any Path object where src_destination_id matches this entity_id
 
-    + __init__(display, routes) # Initializes a page with display text and routes dict
-    + findRoute(cmd):
-        page = None
-        for pattern, page_name in self.routes.items():
-            if pattern.matches(cmd):
-                page = page_name
-
-        return page
+Path
+    - entity_id
+    - src_location_id
+    - dst_location_id
+    - verbs #(use, open, move, access)
+    - nouns #(north door, red door, big door, door)

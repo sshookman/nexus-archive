@@ -1,6 +1,4 @@
-"""Nexus Archive - A Telnet-Based Archive of Gates to the Multiverse"""
-
-from .server import Server
+from .server.server import Server
 
 def main():
     """

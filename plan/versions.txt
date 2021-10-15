@@ -1,0 +1,16 @@
+v0.1.0
+------
+
+First Build
+Experimental build that goes straight into a single game.
+The surrounding logic for accessing other games (i.e. the library aspect of
+the project) will be introduced later.
+
+Key Features
+- Locations (places for the player to access)
+- Paths (a method of connecting locations to one another)
+- Viewables (a module that allows objects in a location to be examined)
+- Health (the player should have a health values capable of changing)
+- Death (If healther reaches 0, game over)
+- Victory (If player reaches the 'final' location, they win)
+- Save Game (a way for the player to save their progress)
