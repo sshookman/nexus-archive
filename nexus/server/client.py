@@ -1,28 +1,15 @@
 import socket
 from threading import Thread
-
-WELCOME = "Welcome to The Dragonfly Experiments\n"
-NA_OPTIONS = """
-  [S]tart
-  [A]bout
-  [E]xit
-"""
-PROMPT = "\n[{}] >> "
+from ..config import ARCHIVE_DB
+from ..ui.nexusArchive import NexusArchive
 
 class Client(Thread):
 
+    nexusArchive = None
+
     def __init__(self, socket, address):
         Thread.__init__(self)
-
-        self.socket = socket
-        self.address = address
+        self.nexusArchive = NexusArchive(socket, address, ARCHIVE_DB)
 
     def run(self):
-        self.socket.send(WELCOME.encode())
-        self.socket.send(NA_OPTIONS.encode())
-        self.socket.send(PROMPT.format("NA").encode())
-
-        inp = self.socket.recv(1024)
-        self.socket.send(inp);
-
-        self.socket.close()
+        self.nexusArchive.start()
