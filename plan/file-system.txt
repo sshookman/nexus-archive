@@ -1,18 +1,16 @@
 /nexus-archive/
 +-- voyagers/
     +-- sshookman/
-        +-- gates/
-            +-- TBA-1127/
-                +-- Harkken.sqlite
-                +-- Julia.sqlite
-                +-- Finn.sqlite
+        +-- TBA-1127/
+            +-- Harkken.sqlite
+            +-- Julia.sqlite
+            +-- Finn.sqlite
     +-- sgaskins/
-        +-- gates/
-            +-- TBA-1028/
-                +-- Turtler.sqlite
-            +-- TBA-1127/
-                +-- Sarah.sqlite
-                +-- Lincoln.sqlite
+        +-- TBA-1028/
+            +-- Turtler.sqlite
+        +-- TBA-1127/
+            +-- Sarah.sqlite
+            +-- Lincoln.sqlite
 +-- gates/
     +-- TBA-1028/
         +-- gate.sqlite
