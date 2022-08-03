@@ -30,14 +30,14 @@ class DatabaseManager:
         rows = self.db.execute(f"SELECT regexp, destination_id FROM path WHERE entity_id = {entity_id};")
         for row in rows:
             regexp = row[0]
-            # TODO: re.match not returing simple bool
+            # TODO: re.match not returning simple bool
             if (regexp == "") | (re.match(regexp, command) == True):
                 destination_id = row[1]
 
         return destination_id
     
     def getLocation(self, entity_id):
-        # TODO: Handle queries in a more streamline manner
+        # TODO: Handle queries in a more streamlined manner
         rows = self.db.execute(f"SELECT description FROM location WHERE entity_id = {entity_id};")
         for row in rows:
             location_description = row[0]
