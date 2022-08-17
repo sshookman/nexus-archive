@@ -16,19 +16,20 @@ ports:
 - 1127:1127
 
 language: Python
+pythonVersion: "3.8"
 jobs:
 - name: install
   source: python3 setup.py clean --all install
-  help: install the Nexus Archive (use --native for local install)
+  help: "install the Nexus Archive (use --native for local install)"
   mode: i
 - name: connect
   source: telnet localhost 1127
-  help: connect to the Nexus Archive (use --native)
+  help: "connect to the Nexus Archive (use --native)"
 - name: start
   source: python3 setup.py clean --all install && nexus
-  help: Start the Nexus Archive Server
+  help: "Start the Nexus Archive Server"
   mode: d
 - name: stop
   source: docker stop nexus-archive-start
-  help: Start the Nexus Archive Server
+  help: "Start the Nexus Archive Server"
   mode: d

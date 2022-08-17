@@ -5,6 +5,8 @@ import time
 import shutil
 import sqlite3
 
+#TODO: Use SQLAlchemy - should make this much easier
+
 class DatabaseManager:
 
     db = None
