@@ -1,5 +1,7 @@
 > telnet nexus-archive.org
 
+------------------------------LOGIN----------------------------------------
+
 Welcome to the Nexus Archive
 
 Enter Account Username >> sshookman
@@ -11,6 +13,8 @@ Verify the Account Password >> **********
 
 A New Adventurer has been Logged
 Good luck out there, sshookman
+
+------------------------------GATES----------------------------------------
 
 Welcome to the Nexus Archive
 
@@ -39,32 +43,37 @@ Please Provide a Gate ID
 
 [sshookman] >> enter TBA-7777
 
-Welcome to the game with the name that is simply too lo...
-What is your name? Is it simply too long?
+------------------------------GATE-MENU------------------------------------
+
+Welcome to The Name is Simply TOO...
+
+    [N]ew Game
+    [L]oad Game
+    [E]xit
+
+[sshookman] >> N
+
+Enter your name
+
+------------------------------GATE-PLAY------------------------------------
 
 [sshookman] >> Harkken
-
-Welcome you short-named creature.
-You're new!
-
-The game is ready and waiting for you!
-
->>PRESS ENTER TO CONTINUE<<
 
 It's a cold, dark, rainy, smelly, muggy, humid, boring, night.
 Or is it day time and you just have the blinds drawn?
 
-[sshookman] Harkken >> save
+[sshookman] Harkken >> Open Blinds
 
-Game Saved!
-The Game is Always Saved Automatically, but Yay Anway!
+You open the blinds. Outside it is raining and dark.
+
+------------------------------GATE-EXIT-------------------------------
 
 [sshookman] Harkken >> quit
 
 Farewell, good sir.
 You will not be forgo-what was your name again?
 
------------
+------------------------------NEXUS-LOGOUT----------------------------
 
 Welcome to the Nexus Archive
 

@@ -10,6 +10,7 @@ class NexusArchive:
     address = None
     messageSystem = None
     username = None
+    password = None
     database = None
 
     def __init__(self, socket, address):
@@ -24,8 +25,12 @@ class NexusArchive:
         self.__title()
         self.messageSystem.send("Username: ")
         self.username = self.messageSystem.recieve()
-        
-        # Create voyager directory if one does not exist already
+        # TODO: If username does not exist, get password twice and create user
+            # Create voyager directory for the new user
+        # TODO: If username exists, perform auth
+            # Authenticate with auth.sqlite
+        self.messageSystem.send("Password: ")
+        self.password = self.messageSystem.password()
 
     def __select_gate(self):
         gates = {}
@@ -80,6 +85,7 @@ class NexusArchive:
         except Exception as exc:
             print(f"Voyager {self.address} Encountered an Error:\n{exc}")
             self.messageSystem.send("Something Went Wrong!\n")
+            self.messageSystem.send(f"{exc}")
 
         finally:
             print(f"Voyager {self.address} Returned Home. Closing Connection")
