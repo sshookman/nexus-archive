@@ -10,7 +10,6 @@ class NexusArchive:
     address = None
     messageSystem = None
     username = None
-    password = None
     database = None
 
     def __init__(self, socket, address):
@@ -18,19 +17,43 @@ class NexusArchive:
         self.messageSystem = MessageSystem(socket)
 
     def __title(self):
+        self.messageSystem.clear()
         self.messageSystem.send(TITLE)
 
     def __login(self):
-        self.messageSystem.clear()
+        is_auth = False
         self.__title()
-        self.messageSystem.send("Username: ")
-        self.username = self.messageSystem.recieve()
-        # TODO: If username does not exist, get password twice and create user
-            # Create voyager directory for the new user
-        # TODO: If username exists, perform auth
-            # Authenticate with auth.sqlite
-        self.messageSystem.send("Password: ")
-        self.password = self.messageSystem.password()
+        
+        while (is_auth == False):
+            self.messageSystem.send("Username: ")
+            username = self.messageSystem.recieve()
+
+            # TODO: Move SQLAlchemy stuff to another class
+            engine = create_engine("sqlite:///archive/auth.sqlite") # MOVE
+            Session = sessionmaker() # MOVE
+            Session.configure(bind=engine) # MOVE
+            session = Session() # MOVE
+            user = session.query(User).filter(Book.title == book_title).one_or_none() # MOVE
+            if (user is not None):
+                self.messageSystem.send("Password: ")
+                password = self.messageSystem.password()
+                is_auth = user.authenticate(password)
+                if (is_auth == False):
+                    self.messageSystem.send("Incorrect Password - Authentication Failed")
+            else:
+                is_valid = False
+                while (is_valid == False):
+                    self.messageSystem.send("Create a Password: ")
+                    password = self.messageSystem.password()
+                    self.messageSystem.send("Re-Enter the Password: ")
+                    password_check = self.messageSystem.password()
+                    is_valid = password == password_check
+                user = User(username=username, pswd_hash=str(hash(password)))
+                session.add(user) # MOVE
+                session.commit() # MOVE
+                is_auth = True
+
+        self.username = username
 
     def __select_gate(self):
         gates = {}
