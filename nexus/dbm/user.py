@@ -11,3 +11,6 @@ class User(Base):
 
     def authenticate(self, password):
         return (str(hash(password)) == self.pswd_hash)
+
+def create(engine):
+    Base.metadata.create_all(engine)

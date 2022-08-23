@@ -21,19 +21,13 @@ class NexusArchive:
         self.messageSystem.send(TITLE)
 
     def __login(self):
+        authService = AuthService() # TODO: Rename VoyagerService
         is_auth = False
-        self.__title()
-        
         while (is_auth == False):
             self.messageSystem.send("Username: ")
             username = self.messageSystem.recieve()
 
-            # TODO: Move SQLAlchemy stuff to another class
-            engine = create_engine("sqlite:///archive/auth.sqlite") # MOVE
-            Session = sessionmaker() # MOVE
-            Session.configure(bind=engine) # MOVE
-            session = Session() # MOVE
-            user = session.query(User).filter(Book.title == book_title).one_or_none() # MOVE
+            user = authService.get_user(username)
             if (user is not None):
                 self.messageSystem.send("Password: ")
                 password = self.messageSystem.password()
@@ -48,11 +42,10 @@ class NexusArchive:
                     self.messageSystem.send("Re-Enter the Password: ")
                     password_check = self.messageSystem.password()
                     is_valid = password == password_check
-                user = User(username=username, pswd_hash=str(hash(password)))
-                session.add(user) # MOVE
-                session.commit() # MOVE
+                authService.add_user(username, password)
                 is_auth = True
 
+        authService.close()
         self.username = username
 
     def __select_gate(self):
@@ -101,6 +94,7 @@ class NexusArchive:
     def start(self):
 
         try:
+            self.__title()
             self.__login()
             self.__select_gate()
             self.__enter_gate()
