@@ -12,10 +12,12 @@ class MessageSystem:
     def send(self, message):
         self.socket.send(message.encode())
 
-    def prompt(self, username=None, player=None):
-        prefix = "" if (username is None) else f"[{username}]"
-        prefix = prefix if (player is None) else prefix += f" {player}"
-        self.send(f"\n\n{prefix}> ")
+    def prompt(self, prompt=None, username=None, player=None):
+        if (prompt is None):
+            prompt = "" if (username is None) else f"[{username}]"
+            prompt = prompt if (player is None) else prompt + f" {player}"
+        self.send(f"\n\n{prompt}> ")
+        return self.recieve()
 
     def password(self, bufsize=1024):
         # TODO: Find a way to tell the client to mask the input

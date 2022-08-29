@@ -4,6 +4,7 @@ from enum import Enum
 from ..conf import TITLE
 from ..dba.databaseManager import DatabaseManager
 from .messageSystem import MessageSystem
+from ..dbm.voyager.voyagerService import VoyagerService
 
 class NexusArchive:
 
@@ -21,34 +22,34 @@ class NexusArchive:
         self.messageSystem.send(TITLE)
 
     def __login(self):
-        authService = AuthService() # TODO: Rename VoyagerService
+        voyagerService = VoyagerService()
+
         is_auth = False
         while (is_auth == False):
-            self.messageSystem.send("Username: ")
-            username = self.messageSystem.recieve()
+            username = self.messageSystem.prompt(prompt="Username")
+            voyager = voyagerService.read(username)
 
-            user = authService.get_user(username)
-            if (user is not None):
-                self.messageSystem.send("Password: ")
-                password = self.messageSystem.password()
-                is_auth = user.authenticate(password)
+            if (voyager is not None):
+                password = self.messageSystem.prompt(prompt="Password")
+                is_auth = voyager.authenticate(password)
+
                 if (is_auth == False):
                     self.messageSystem.send("Incorrect Password - Authentication Failed")
             else:
                 is_valid = False
                 while (is_valid == False):
-                    self.messageSystem.send("Create a Password: ")
-                    password = self.messageSystem.password()
-                    self.messageSystem.send("Re-Enter the Password: ")
-                    password_check = self.messageSystem.password()
+                    password = self.messageSystem.prompt(prompt="Create a Password")
+                    password_check = self.messageSystem.prompt(prompt="Re-Enter the Password")
                     is_valid = password == password_check
-                authService.add_user(username, password)
+
+                voyagerService.create(username, password)
                 is_auth = True
 
-        authService.close()
+        voyagerService.close()
         self.username = username
 
     def __select_gate(self):
+        # Create and Use ArchiveService
         gates = {}
         for root, dirs, files in os.walk("archive/gates/"):
             index = 0
@@ -71,12 +72,11 @@ class NexusArchive:
         self.messageSystem.send("\nSelect a Gate ID: ")
         gateId = self.messageSystem.recieve()
 
-        if (gateId not in gates.keys()):
-            gatefile = self.gateways()
-        else:
+        if (gateId in gates.keys()):
             gatefile = gates[gateId]["file"]
-
-        self.database = DatabaseManager(gatefile, self.username)
+            self.database = DatabaseManager(gatefile, self.username)
+        else:
+            self.__select_gate()
 
     def __enter_gate(self, entityId=1):
 
@@ -84,8 +84,7 @@ class NexusArchive:
         self.messageSystem.clear()
         self.messageSystem.type(page)
 
-        self.messageSystem.prompt()
-        command = self.messageSystem.recieve()
+        command = self.messageSystem.prompt(username=self.username)
         entityId = self.database.execute(command, entityId)
 
         if (entityId != 0):

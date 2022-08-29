@@ -6,6 +6,8 @@ ephemeral: false
 
 dependencies:
 - setuptools
+- bcrypt~=4.0
+- sqlalchemy~=1.4
 
 ignores:
 - build/
@@ -24,12 +26,16 @@ jobs:
   mode: i
 - name: connect
   source: telnet localhost 1127
+  native: always
   help: "connect to the Nexus Archive (use --native)"
 - name: start
   source: python3 setup.py clean --all install && nexus
   help: "Start the Nexus Archive Server"
+  mappings:
+  - archive/
   mode: d
 - name: stop
   source: docker stop nexus-archive-start
-  help: "Start the Nexus Archive Server"
+  native: always
+  help: "Stop the Nexus Archive Server"
   mode: d

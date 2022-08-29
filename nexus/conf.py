@@ -19,3 +19,5 @@ TITLE = """
                        /                                                                                                                               /
                       /                                                                                                                               /
 """
+
+VOYAGERS_DB = "archive/voyagers.sqlite"
