@@ -3,7 +3,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 from ...conf import VOYAGERS_DB
+from ...util.logging import NexusLogger
 from .voyagerTable import Voyager, create_voyager_table
+
+LOGGER = NeuxsLogger(__name__)
 
 class VoyagerService:
 
@@ -33,7 +36,7 @@ class VoyagerService:
             self.session.add(voyager)
             self.session.commit()
         except Exception as exc:
-            print(f"Failed to Create New Voyager {exc}")
+            LOGGER.warn(f"Failed to Create New Voyager {exc}")
             self.session.rollback()
 
     #def read_all(self, page=0):

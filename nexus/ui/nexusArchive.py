@@ -5,6 +5,9 @@ from ..conf import TITLE
 from ..dba.databaseManager import DatabaseManager
 from .messageSystem import MessageSystem
 from ..dbm.voyager.voyagerService import VoyagerService
+from ..util.logging import NexusLogger
+
+LOGGER = NexusLogger(__name__)
 
 class NexusArchive:
 
@@ -99,11 +102,11 @@ class NexusArchive:
             self.__enter_gate()
 
         except Exception as exc:
-            print(f"Voyager {self.address} Encountered an Error:\n{exc}")
+            LOGGER.info(f"Voyager {self.address} Encountered an Error:\n{exc}")
             self.messageSystem.send("Something Went Wrong!\n")
             self.messageSystem.send(f"{exc}")
 
         finally:
-            print(f"Voyager {self.address} Returned Home. Closing Connection")
+            LOGGER.info(f"Voyager {self.address} Returned Home. Closing Connection")
             self.messageSystem.send("Carry On, Inrepid Voyager!\n")
 
