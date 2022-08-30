@@ -6,7 +6,7 @@ from ...conf import VOYAGERS_DB
 from ...util.logging import NexusLogger
 from .voyagerTable import Voyager, create_voyager_table
 
-LOGGER = NeuxsLogger(__name__)
+LOGGER = NexusLogger(__name__)
 
 class VoyagerService:
 
