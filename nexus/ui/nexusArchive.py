@@ -5,6 +5,7 @@ from ..conf import TITLE
 from ..dba.databaseManager import DatabaseManager
 from .messageSystem import MessageSystem
 from ..dbm.voyager.voyagerService import VoyagerService
+from ..archive.archiveService import ArchiveService
 from ..util.logging import NexusLogger
 
 LOGGER = NexusLogger(__name__)
@@ -13,18 +14,22 @@ class NexusArchive:
 
     address = None
     messageSystem = None
+    archiveService = None
     username = None
     database = None
 
     def __init__(self, socket, address):
         self.address = address
         self.messageSystem = MessageSystem(socket)
+        self.archiveService = ArchiveService()
 
     def __title(self):
         self.messageSystem.clear()
         self.messageSystem.send(TITLE)
 
     def __login(self):
+        self.__title()
+
         voyagerService = VoyagerService()
 
         is_auth = False
@@ -51,35 +56,23 @@ class NexusArchive:
         voyagerService.close()
         self.username = username
 
-    def __select_gate(self):
-        # Create and Use ArchiveService
-        gates = {}
-        for root, dirs, files in os.walk("archive/gates/"):
-            index = 0
-            for filename in files:
-                if (".sqlite" in filename):
-                    index += 1
-                    gate = filename.split(".")[0]
-                    gate = gate.replace("_", " ")
-                    gates[str(index)] = {
-                        "title": gate.title(),
-                        "file": filename
-                    }
+    def __select_gate(self, page=1):
+        self.__title()
 
-        self.messageSystem.clear()
-        self.messageSystem.send(TITLE)
-        self.messageSystem.send("GATEWAYS:\n")
-        for gate_id in gates.keys():
-            self.messageSystem.send(f"[{gate_id}] {gates[gate_id]['title']}\n")
+        page = self.archiveService.get_page(page=page)
+        self.messageSystem.send(page)
 
-        self.messageSystem.send("\nSelect a Gate ID: ")
-        gateId = self.messageSystem.recieve()
-
-        if (gateId in gates.keys()):
-            gatefile = gates[gateId]["file"]
+        cmd = self.messageSystem.prompt()
+        # TODO: Handle the commands better
+        if (cmd == "P"):
+            return self.__select_gate(page-1)
+        elif (cmd == "N"):
+            return self.__select_gate(page+1)
+        elif (cmd == "B"):
+            return self.__select_gate(page+1)
+        elif (cmd.startswith("O")):
+            gatefile = self.archiveService.get_gatefile(1)
             self.database = DatabaseManager(gatefile, self.username)
-        else:
-            self.__select_gate()
 
     def __enter_gate(self, entityId=1):
 
@@ -96,7 +89,6 @@ class NexusArchive:
     def start(self):
 
         try:
-            self.__title()
             self.__login()
             self.__select_gate()
             self.__enter_gate()
