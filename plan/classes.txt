@@ -47,17 +47,48 @@ NexusManager:
 
         return self.page
 
-Entity
+___DATABASE___
+
+Entity:
     - id
 
-Location
-    - entity_id
-    - display
-    - paths #any Path object where src_destination_id matches this entity_id
+Player:
+    - id # NOT USED
+    - entity_id FK-Entity.id
+    - name
+    - location_id FK-Entity.id # Current Location
 
-Path
-    - entity_id
-    - src_location_id
-    - dst_location_id
+Item:
+    - id # NOT USED
+    - entity_id FK-Entity.id
+    - name
+    - quantity
+    - owner_id FK-Entity.id # Current Location/Owner
+
+Location:
+    - id # NOT USED
+    - entity_id FK-Entity.id
+    - display
+    - next_location_entity_id FK # Automatically move to another location instead of using pathing
+
+Path:
+    - id # NOT USED
+    - entity_id FK-Entity.id
+    - destination_id FK-Entity.id
     - verbs #(use, open, move, access)
     - nouns #(north door, red door, big door, door)
+
+___APPLICATION___
+
+Entity
+    - 1
+
+    - 2
+
+Player:
+    - 1
+    - 1
+    - Harkken
+    - 2
+
+

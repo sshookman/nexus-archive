@@ -3,9 +3,9 @@ from .server.server import Server
 
 def main():
     """
-    Starts the Telnet Server on Port 1127
+    Nexus Archive
 
-    The server awaits connections and instantiates Clients once they are established.
+    Starts the Telnet Server for the Nexus Archive on Port 1127
     """
 
     server = Server(1127)

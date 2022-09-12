@@ -1,18 +1,16 @@
 /nexus-archive/
-+-- users/
++-- voyagers/
     +-- sshookman/
-        +-- gates/
-            +-- TBA-1127/
-                +-- Harkken.sqlite
-                +-- Julia.sqlite
-                +-- Finn.sqlite
+        +-- TBA-1127/
+            +-- Harkken.sqlite
+            +-- Julia.sqlite
+            +-- Finn.sqlite
     +-- sgaskins/
-        +-- gates/
-            +-- TBA-1028/
-                +-- Turtler.sqlite
-            +-- TBA-1127/
-                +-- Sarah.sqlite
-                +-- Lincoln.sqlite
+        +-- TBA-1028/
+            +-- Turtler.sqlite
+        +-- TBA-1127/
+            +-- Sarah.sqlite
+            +-- Lincoln.sqlite
 +-- gates/
     +-- TBA-1028/
         +-- gate.sqlite
@@ -23,6 +21,14 @@
 
 ------------
 
-There are Users and there are Gates. Gates are the games, which are broken up between the "gate.sqlite"
-which acts as the menu screen for character selection, help info, and any other junk the creater
-may want to include.
+There are Voyagers and there are Gates. Gates are the games, which are broken up between the
+"gate.sqlite" db and the "universe.sqlite" db. The gate file acts as the menu screen for character
+selection, help info, and any other higher level information about the game. The universe file is
+the actual game itself, in it's initial state (new game).
+
+Once a Voyagers enters a Gate they are placed inside the Universe, this is done by creating a copy
+of the universe file in their account folder, in a gate folder, named with the player name they
+have provided. This new file acts as the save file for the player and is updated as the players
+interacts with the universe (it auto-saves).
+
+THIS HAS CHANGED
