@@ -56,21 +56,22 @@ class NexusArchive:
         voyagerService.close()
         self.username = username
 
-    def __select_gate(self, page=1):
+    def __select_gate(self, page=0):
         self.__title()
 
         page = self.archiveService.get_page(page=page)
         self.messageSystem.send(page)
 
         cmd = self.messageSystem.prompt()
-        # TODO: Handle the commands better
-        if (cmd == "P"):
-            return self.__select_gate(page-1)
-        elif (cmd == "N"):
+        cmd = cmd.lower()
+        #TODO: Handle commands more flexibly
+        if (cmd == "p"):
+            return self.__select_gate(max(page-1, 0))
+        elif (cmd == "n"):
             return self.__select_gate(page+1)
-        elif (cmd == "B"):
-            return self.__select_gate(page+1)
-        elif (cmd.startswith("O")):
+        elif (cmd == "b"):
+            return self.__select_gate(0)
+        elif (cmd.startswith("o")):
             gatefile = self.archiveService.get_gatefile(1)
             self.database = DatabaseManager(gatefile, self.username)
 
