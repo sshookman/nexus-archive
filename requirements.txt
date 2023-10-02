@@ -1,0 +1,3 @@
+setuptools
+bcrypt~=4.0
+sqlalchemy~=1.4
