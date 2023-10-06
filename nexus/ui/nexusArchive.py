@@ -11,6 +11,9 @@ from ..util.logging import NexusLogger
 LOGGER = NexusLogger(__name__)
 
 class NexusArchive:
+    """
+    This class handles the text-only user interface for the Nexus Archive.
+    """
 
     address = None
     messageSystem = None

@@ -9,6 +9,9 @@ from .voyagerTable import Voyager, create_voyager_table
 LOGGER = NexusLogger(__name__)
 
 class VoyagerService:
+    """
+    Data service for managing voyagers (players) in the database
+    """
 
     session = None
 
