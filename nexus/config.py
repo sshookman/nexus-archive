@@ -1,3 +1,6 @@
+"""Global Config for Nexus"""
+
+# Menu Screen Config
 TITLE = """
   /###           /  /                         ##### #     ##                                                        ##                              /
  /  ############/ #/                       ######  /#    #### /                                                  /####                            #/        #
@@ -20,4 +23,5 @@ TITLE = """
                       /                                                                                                                               /
 """
 
+# Database Config
 VOYAGERS_DB = "archive/voyagers.sqlite"

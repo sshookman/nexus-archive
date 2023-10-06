@@ -1,7 +1,7 @@
 import os
 import re
 from enum import Enum
-from ..conf import TITLE
+from ..config import TITLE
 from ..dba.databaseManager import DatabaseManager
 from .messageSystem import MessageSystem
 from ..dbm.voyager.voyagerService import VoyagerService

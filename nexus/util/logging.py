@@ -1,15 +1,13 @@
 import logging
 from datetime import date
-
-LOG_LEVELS = list(logging._nameToLevel.keys())
-FORMAT = "[%(asctime)s] [%(levelname)s] <%(name)s> %(message)s"
-DATE_FORMAT = "%Y-%m-%d %I:%M:%S"
+from .config import LOG_LEVELS, LOG_FORMAT, DATE_FORMAT
 
 class NexusLogger:
     """
     NexusLogger Class
-    This class provides a simple logging mechanism that allows for logging to std out by default,
-    and also allows for logging to a file as well.
+
+    This class provides a simple logging mechanism that allows for writing messages to std out by
+    default, and also allows for logging to a file.
     """
 
     logger = None
@@ -17,6 +15,7 @@ class NexusLogger:
     def __init__(self, name, level=None, file_out=None, file_date=True):
         """
         Initialize the logger based on the log level as well as how and if it logs to a file
+
         Parameters
         ----------
         name : string
@@ -39,13 +38,14 @@ class NexusLogger:
             handlers += [logging.FileHandler(filename, delay=True)]
 
         if (level is not None):
-            logging.basicConfig(format=FORMAT, level=level, datefmt=DATE_FORMAT, handlers=handlers)
+            logging.basicConfig(format=LOG_FORMAT, level=level, datefmt=DATE_FORMAT, handlers=handlers)
 
         self.logger = logging.getLogger(name)
 
     def debug(self, message):
         """
         Log debug level messages
+
         Parameters
         ----------
         message : string
@@ -57,6 +57,7 @@ class NexusLogger:
     def info(self, message):
         """
         Log info level messages
+
         Parameters
         ----------
         message : string
@@ -67,6 +68,7 @@ class NexusLogger:
     def warning(self, message):
         """
         Log warning level messages
+
         Parameters
         ----------
         message : string
@@ -77,6 +79,7 @@ class NexusLogger:
     def error(self, message):
         """
         Log error level messages
+
         Parameters
         ----------
         message : string
@@ -87,6 +90,7 @@ class NexusLogger:
     def critical(self, message):
         """
         Log critical level messages
+
         Parameters
         ----------
         message : string
