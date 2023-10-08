@@ -39,22 +39,23 @@ class NexusArchive:
         while (is_auth == False):
             username = self.messageSystem.prompt(prompt="Username")
             voyager = voyagerService.read(username)
+            is_auth = True
 
-            if (voyager is not None):
-                password = self.messageSystem.prompt(prompt="Password")
-                is_auth = voyager.authenticate(password)
+            if (voyager is None):
+                #is_valid = False
+                #while (is_valid == False):
+                    #password = self.messageSystem.prompt(prompt="Create a Password")
+                    #password_check = self.messageSystem.prompt(prompt="Re-Enter the Password")
+                    #is_valid = password == password_check
 
-                if (is_auth == False):
-                    self.messageSystem.send("Incorrect Password - Authentication Failed")
-            else:
-                is_valid = False
-                while (is_valid == False):
-                    password = self.messageSystem.prompt(prompt="Create a Password")
-                    password_check = self.messageSystem.prompt(prompt="Re-Enter the Password")
-                    is_valid = password == password_check
+                voyagerService.create(username, "todo")
+                #is_auth = True
+            #else:
+                #password = self.messageSystem.prompt(prompt="Password")
+                #is_auth = voyager.authenticate(password)
 
-                voyagerService.create(username, password)
-                is_auth = True
+                #if (is_auth == False):
+                    #self.messageSystem.send("Incorrect Password - Authentication Failed")
 
         voyagerService.close()
         self.username = username
