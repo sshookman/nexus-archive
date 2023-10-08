@@ -5,9 +5,7 @@ contact: sms112788@gmail.com
 ephemeral: false
 
 dependencies:
-- setuptools
-- bcrypt~=4.0
-- sqlalchemy~=1.4
+- req:requirements.txt
 
 ignores:
 - build/

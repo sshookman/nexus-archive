@@ -25,6 +25,9 @@ NEXT_CONTROL = "[N]EXT >>" #9
 PAGE_DISPLAY = " {current}/{total} " #3 each
 
 class ArchiveService:
+    """
+    This class provides a mechanism for finding the different gates within the archive.
+    """
 
     gates = None
     total_pages = None
