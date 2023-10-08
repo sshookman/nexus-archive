@@ -1,7 +1,7 @@
 import os
 import re
 from enum import Enum
-from ..conf import TITLE
+from ..config import TITLE
 from ..dba.databaseManager import DatabaseManager
 from .messageSystem import MessageSystem
 from ..dbm.voyager.voyagerService import VoyagerService
@@ -11,6 +11,9 @@ from ..util.logging import NexusLogger
 LOGGER = NexusLogger(__name__)
 
 class NexusArchive:
+    """
+    This class handles the text-only user interface for the Nexus Archive.
+    """
 
     address = None
     messageSystem = None
@@ -36,22 +39,23 @@ class NexusArchive:
         while (is_auth == False):
             username = self.messageSystem.prompt(prompt="Username")
             voyager = voyagerService.read(username)
+            is_auth = True
 
-            if (voyager is not None):
-                password = self.messageSystem.prompt(prompt="Password")
-                is_auth = voyager.authenticate(password)
+            if (voyager is None):
+                #is_valid = False
+                #while (is_valid == False):
+                    #password = self.messageSystem.prompt(prompt="Create a Password")
+                    #password_check = self.messageSystem.prompt(prompt="Re-Enter the Password")
+                    #is_valid = password == password_check
 
-                if (is_auth == False):
-                    self.messageSystem.send("Incorrect Password - Authentication Failed")
-            else:
-                is_valid = False
-                while (is_valid == False):
-                    password = self.messageSystem.prompt(prompt="Create a Password")
-                    password_check = self.messageSystem.prompt(prompt="Re-Enter the Password")
-                    is_valid = password == password_check
+                voyagerService.create(username, "todo")
+                #is_auth = True
+            #else:
+                #password = self.messageSystem.prompt(prompt="Password")
+                #is_auth = voyager.authenticate(password)
 
-                voyagerService.create(username, password)
-                is_auth = True
+                #if (is_auth == False):
+                    #self.messageSystem.send("Incorrect Password - Authentication Failed")
 
         voyagerService.close()
         self.username = username

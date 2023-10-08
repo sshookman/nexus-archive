@@ -5,6 +5,11 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class Voyager(Base):
+    """
+    Database object for Voyager
+
+    Voyager objects represent players and store the username and password
+    """
     __tablename__ = "voyager"
     voyager_id = Column(Integer, primary_key=True)
     username = Column(String, nullable=False, unique=True)

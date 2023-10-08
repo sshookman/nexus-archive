@@ -8,6 +8,9 @@ import sqlite3
 #TODO: Use SQLAlchemy - should make this much easier
 
 class DatabaseManager:
+    """
+    Database management layer that is a wrapper around SQLAlchemy and SQLite3
+    """
 
     db = None
     cursor = None

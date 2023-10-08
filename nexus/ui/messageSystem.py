@@ -1,6 +1,9 @@
 import time
 
 class MessageSystem:
+    """
+    This class handles the actual sending and receiving messages to and from the user
+    """
 
     socket = None
     render_speed = None
