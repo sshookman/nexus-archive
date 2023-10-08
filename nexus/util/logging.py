@@ -1,6 +1,6 @@
 import logging
 from datetime import date
-from .config import LOG_LEVELS, LOG_FORMAT, DATE_FORMAT
+from .config import LOG_FORMAT, DATE_FORMAT
 
 class NexusLogger:
     """
