@@ -63,8 +63,8 @@ class NexusArchive:
     def __select_gate(self, page=0):
         self.__title()
 
-        page = self.archiveService.get_page(page=page)
-        self.messageSystem.send(page)
+        page_content = self.archiveService.get_page(page=page)
+        self.messageSystem.send(page_content)
 
         cmd = self.messageSystem.prompt()
         cmd = cmd.lower()

@@ -2,7 +2,7 @@ import os
 import math
 
 INDEX_LENGTH = 5
-TITLE_LENGTH = 15
+TITLE_LENGTH = 35
 PAGE_LENGTH = 3
 LENGTH = 31
 GATES_PER_PAGE = 10
@@ -12,10 +12,10 @@ GATES_TABLE = """
     [B]ACK
     [O]PEN (INDEX)
 
-    +-------+-----------------+
-    | INDEX |      TITLE      |
-    +-------+-----------------+
-{rows}    +-------+-----------------+
+    +-------+-------------------------------------+
+    | INDEX |                TITLE                |
+    +-------+-------------------------------------+
+{rows}    +-------+-------------------------------------+
 {controls}
 """
 GATES_ROW = "    | {index} | {title} |\n"
@@ -66,7 +66,7 @@ class ArchiveService:
     def get_page(self, page=0):
         rows = ""
         start = page*GATES_PER_PAGE + 1
-        end = min(start+GATES_PER_PAGE, len(self.gates))
+        end = min(start+GATES_PER_PAGE, len(self.gates)+1)
         for gate_id in range(start, end):
             gate_id = str(gate_id)
             index = self.__resize(gate_id, INDEX_LENGTH)
@@ -76,7 +76,7 @@ class ArchiveService:
 
         prev_c = PREV_CONTROL if (page > 1) else " "*9
         next_c = NEXT_CONTROL if (page < self.total_pages) else " "*9
-        current = self.__resize(page, 3, justify="right")
+        current = self.__resize(page+1, 3, justify="right")
         total = self.__resize(self.total_pages, 3)
         page = PAGE_DISPLAY.format(current=current, total=total)
         controls = CONTROLS_ROW.format(prev=prev_c, page=page, next=next_c)
