@@ -1,19 +1,21 @@
 import os
+import math
 
 INDEX_LENGTH = 5
-TITLE_LENGTH = 15
+TITLE_LENGTH = 35
 PAGE_LENGTH = 3
 LENGTH = 31
+GATES_PER_PAGE = 10
 
 GATES_LOCATION = "archive/gates/"
 GATES_TABLE = """
     [B]ACK
     [O]PEN (INDEX)
 
-    +-------+-----------------+
-    | INDEX |      TITLE      |
-    +-------+-----------------+
-{rows}    +-------+-----------------+
+    +-------+-------------------------------------+
+    | INDEX |                TITLE                |
+    +-------+-------------------------------------+
+{rows}    +-------+-------------------------------------+
 {controls}
 """
 GATES_ROW = "    | {index} | {title} |\n"
@@ -43,7 +45,7 @@ class ArchiveService:
                         "title": gate.title(),
                         "file": filename
                     }
-        self.total_pages = int(index / 25)
+        self.total_pages = int(math.ceil(index / GATES_PER_PAGE))
 
     def __resize(self, text, length, justify="left"):
         text = str(text)
@@ -61,9 +63,12 @@ class ArchiveService:
     def get_gatefile(self, index):
         return self.gates[str(index)]["file"]
 
-    def get_page(self, page=1):
+    def get_page(self, page=0):
         rows = ""
-        for gate_id in self.gates.keys():
+        start = page*GATES_PER_PAGE + 1
+        end = min(start+GATES_PER_PAGE, len(self.gates)+1)
+        for gate_id in range(start, end):
+            gate_id = str(gate_id)
             index = self.__resize(gate_id, INDEX_LENGTH)
             title = self.__resize(self.gates[gate_id]['title'], TITLE_LENGTH)
             row = GATES_ROW.format(index=index, title=title)
@@ -71,7 +76,7 @@ class ArchiveService:
 
         prev_c = PREV_CONTROL if (page > 1) else " "*9
         next_c = NEXT_CONTROL if (page < self.total_pages) else " "*9
-        current = self.__resize(page, 3, justify="right")
+        current = self.__resize(page+1, 3, justify="right")
         total = self.__resize(self.total_pages, 3)
         page = PAGE_DISPLAY.format(current=current, total=total)
         controls = CONTROLS_ROW.format(prev=prev_c, page=page, next=next_c)
